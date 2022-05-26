@@ -1,15 +1,14 @@
-FROM golang:1.15.6-alpine3.12 as builder
+FROM golang:1.17-alpine3.15 as builder
 
-RUN apk update \
-  && apk add --no-cache git curl \
-  && go get -u github.com/cosmtrek/air \
-  && chmod +x ${GOPATH}/bin/air
+RUN apk update && apk add --no-cache git curl 
 
 WORKDIR /app
 
 COPY go.mod go.sum ./
 
 RUN go mod download
+
+RUN curl -sSfL https://raw.githubusercontent.com/cosmtrek/air/master/install.sh | sh -s -- -b $(go env GOPATH)/bin
 
 COPY . .
 

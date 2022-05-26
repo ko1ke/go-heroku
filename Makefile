@@ -1,5 +1,5 @@
 up:
-	docker-compose -f dockers/docker-compose.yml build && docker-compose -f dockers/docker-compose.yml up -d
+	docker-compose -f dockers/docker-compose.yml build && docker-compose -f dockers/docker-compose.yml up
 down:
 	docker-compose -f dockers/docker-compose.yml down
 logs:
