@@ -1,4 +1,4 @@
-attach:
+exec:
 	docker exec -it go-heroku sh
 up:
 	docker-compose -f dockers/docker-compose.yml build && docker-compose -f dockers/docker-compose.yml up
@@ -7,4 +7,4 @@ down:
 logs:
 	docker-compose -f dockers/docker-compose.yml logs -f app
 
-.PHONY: attach up down logs
+.PHONY: exec up down logs
