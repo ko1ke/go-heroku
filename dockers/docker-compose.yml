@@ -5,6 +5,7 @@ services:
     build:
       context: ..
       target: builder
+      dockerfile: ./dockers/golang/Dockerfile
     ports:
       - 8080:8080
     volumes:
