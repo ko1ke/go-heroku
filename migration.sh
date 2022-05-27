@@ -6,6 +6,6 @@ if [ $# -ne 1 ]; then
   exit 1
 fi
 
-migrate -database postgres://postgres:secret@postgres/go-heroku?sslmode=disable -path ./db/migrations $1
+./migrate -database postgres://postgres:secret@postgres/go-heroku?sslmode=disable -path ./db/migrations $1
 
 exit 0
