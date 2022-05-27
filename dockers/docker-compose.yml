@@ -2,6 +2,7 @@ version: "3.5"
 
 services:
   app:
+    container_name: go-heroku
     build:
       context: ..
       target: builder
@@ -10,4 +11,20 @@ services:
       - 8080:8080
     volumes:
       - ../:/app
+    depends_on:
+      - postgres
     command: air
+
+  postgres:
+    container_name: postgres
+    build:
+      context: ..
+      dockerfile: ./dockers/postgres/Dockerfile
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=secret
+      - POSTGRES_DB=go-heroku
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./postgres_volume:/var/lib/postgresql/data

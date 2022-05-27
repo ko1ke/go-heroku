@@ -18,3 +18,4 @@
 
 # Working directory
 /build
+/dockers/postgres_volume
