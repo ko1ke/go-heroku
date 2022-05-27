@@ -1,5 +1,6 @@
 module github.com/ko1ke/go-heroku
 
+// +heroku goVersion go1.17
 go 1.17
 
 require (
